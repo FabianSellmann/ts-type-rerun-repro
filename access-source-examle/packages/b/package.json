@@ -1,0 +1,9 @@
+{
+  "name": "b",
+  "private": true,
+  "version": "1.0.0",
+  "main": "b.ts",
+  "repository": "git@github.com:FabianSellmann/ts-type-rerun-repro.git",
+  "author": "Fabian Sellmann <fabian.sellmann@bitgamelabs.com>",
+  "license": "MIT"
+}
