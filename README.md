@@ -1,6 +1,6 @@
-# Reproducing duplicate / non-deterministic type checks on tsc -b run with tsbuildinfo
+# Reproducing duplicate type checks on initial tsc -b run
 
-Either run `yarn` in `access-source-example` or manually symlink the `a` and `b` directories into `nodue_modules`.
+Either run `yarn` in `access-source-example` or manually symlink the `a` and `b` directories into `node_modules`. From here on out, everything will be relative to the `access-source-example` directory.
 
 Run `yarn typecheck` or `tsc -b`.
 It will output the following:
@@ -24,9 +24,11 @@ error Command failed with exit code 1.
 
 The same typecheck seems to be invoked twice here.
 
-Runing this again, will print out the same. However this time, it will not run any type checking but use the information tsbuildinfo files it seems.
+Runing this again, will print out the same. However this time, it will not run any type checking but use the information from the tsbuildinfo files it seems.
 
-Now fix the type error in `b.ts` and run `yarn typecheck` again.
+Furthermore tsc does not always report this as `2 errors`, depending on how the error has been cached. Follow the next steps:
+
+Fix the type error in `b.ts` and run `yarn typecheck` again.
 
 No error. All declaration files are emitted in `typecheck_cache` directory.
 
